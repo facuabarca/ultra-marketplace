@@ -7,7 +7,6 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class ApiBridgeService {
   constructor(private httpClient: HttpClient) {}
-
   get<T>(url: string, queryParams: any = null): Observable<T> {
     let params = new HttpParams();
     if (queryParams) {
