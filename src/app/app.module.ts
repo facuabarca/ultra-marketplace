@@ -7,10 +7,10 @@ import { EffectsModule } from '@ngrx/effects';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
-import { UiModule } from './ui/ui.module';
 import { environment } from '../environments/environment.prod';
 import { UserModule } from './modules/user/user.module';
 import { CartModule } from './modules/cart/cart.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,7 +18,7 @@ import { CartModule } from './modules/cart/cart.module';
     BrowserModule,
     AppRoutingModule,
     CoreModule,
-    UiModule,
+    SharedModule,
     UserModule,
     CartModule,
     StoreModule.forRoot({}),

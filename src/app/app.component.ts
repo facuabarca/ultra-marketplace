@@ -1,8 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { getUser } from '@app/modules/user/store/user.actions';
-import { selectUser } from '@app/modules/user/store/user.selector';
-import { Store } from '@ngrx/store';
-import { filter } from 'rxjs';
 import { AppFacadeService } from './shared/app-facade.service';
 
 @Component({

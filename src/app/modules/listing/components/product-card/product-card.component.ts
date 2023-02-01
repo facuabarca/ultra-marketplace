@@ -9,8 +9,10 @@ import { IProduct } from '../../../../shared/models/shared.model';
 export class ProductCardComponent {
   @Input() product!: IProduct;
   @Output() onAddProduct = new EventEmitter();
+  disabled: boolean = false;
 
   addProduct(): void {
+    this.disabled = !this.disabled;
     this.onAddProduct.emit(this.product);
   }
 }

@@ -3,6 +3,6 @@
     <div class="card-body">
         <h5 class="card-title">{{ product.name }}</h5>
         <p class="card-text">${{ product.price }}</p>
-        <a href="#" class="btn btn-primary" (click)="addProduct()">Add to Cart</a>
+        <button href="#" class="btn btn-primary" [disabled]="disabled" (click)="addProduct()">Add to Cart</button>
     </div>
 </div>

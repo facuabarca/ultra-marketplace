@@ -4,14 +4,23 @@ import { getUser } from '@app/modules/user/store/user.actions';
 import { getProducts } from '../modules/listing/store/listing.actions';
 import { addItemCart } from '../modules/cart/store/cart.actions';
 import { IProduct } from './models/shared.model';
+import { Observable, map, filter } from 'rxjs';
+import { selectUserWallet } from '../modules/user/store/user.selector';
+import { selectCartItems } from '@app/modules/cart/store/cart.selector';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AppFacadeService {
-  //   todoList$ = this.store.select(getLoadedTodoList);
+  walletAmount$: Observable<number | undefined>;
+  cartCounter$: Observable<number>;
 
-  constructor(private store: Store) {}
+  constructor(private store: Store) {
+    this.walletAmount$ = this.store.select(selectUserWallet);
+    this.cartCounter$ = this.store
+      .select(selectCartItems)
+      .pipe(map((cartItems: IProduct[]) => cartItems.length));
+  }
 
   loadUser(): void {
     this.store.dispatch(getUser());
