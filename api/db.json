@@ -1,0 +1,269 @@
+{
+  "users": [
+    {
+      "id": 5564,
+      "name": "Facundo",
+      "lastName": "Abarca",
+      "wallet": {
+        "amount": 350
+      }
+    },
+    {
+      "id": 7667,
+      "name": "Pedro",
+      "lastName": "Ortega",
+      "wallet": {
+        "amount": 350
+      }
+    },
+    {
+      "id": 4544,
+      "name": "Lucrecio",
+      "lastName": "Indeana",
+      "wallet": {
+        "amount": 350
+      }
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+      "name": "Disco Elysium: The Final Cut",
+      "price": 75
+    },
+    {
+      "id": 2,
+      "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+      "name": "Half-Life 2",
+      "price": 50
+    },
+    {
+      "id": 3,
+      "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+      "name": "Grand Theft Auto V",
+      "price": 100
+    },
+    {
+      "id": 4,
+      "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+      "name": "The Orange Box",
+      "price": 25
+    },
+    {
+      "id": 5,
+      "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+      "name": "Half-Life",
+      "price": 22
+    },
+    {
+      "id": 6,
+      "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+      "name": "BioShock",
+      "price": 76
+    },
+    {
+      "id": 7,
+      "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+      "name": "Baldur's Gate II: Shadows of Amn",
+      "price": 66
+    },
+    {
+      "id": 8,
+      "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+      "name": "Persona 5 Royal",
+      "price": 88
+    },
+    {
+      "id": 9,
+      "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+      "name": "Portal 2",
+      "price": 55
+    },
+    {
+      "id": 10,
+      "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+      "name": "Grand Theft Auto: Vice City",
+      "price": 12
+    },
+    {
+      "id": 11,
+      "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+      "name": "Sid Meier's Civilization II",
+      "price": 24
+    },
+    {
+      "id": 12,
+      "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+      "name": "Quake",
+      "price": 33
+    },
+    {
+      "id": 13,
+      "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+      "name": "BioShock Infinite",
+      "price": 50
+    },
+    {
+      "id": 14,
+      "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+      "name": "The Elder Scrolls IV: Oblivion",
+      "price": 56
+    },
+    {
+      "id": 15,
+      "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+      "name": "Diablo",
+      "price": 12
+    },
+    {
+      "id": 16,
+      "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+      "name": "The Witcher 3: Wild Hunt",
+      "price": 88
+    },
+    {
+      "id": 17,
+      "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+      "name": "Company of Heroes",
+      "price": 34
+    },
+    {
+      "id": 18,
+      "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+      "name": "Half-Life: Alyx",
+      "price": 65
+    }
+  ],
+  "productsPagination": [
+    {
+      "page": 1,
+      "nextPage": 2,
+      "previousPage": null,
+      "items": [
+        {
+          "id": 1,
+          "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+          "name": "Disco Elysium: The Final Cut",
+          "price": 75
+        },
+        {
+          "id": 2,
+          "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+          "name": "Half-Life 2",
+          "price": 50
+        },
+        {
+          "id": 3,
+          "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+          "name": "Grand Theft Auto V",
+          "price": 100
+        },
+        {
+          "id": 4,
+          "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+          "name": "The Orange Box",
+          "price": 25
+        },
+        {
+          "id": 5,
+          "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+          "name": "Half-Life",
+          "price": 22
+        },
+        {
+          "id": 6,
+          "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+          "name": "BioShock",
+          "price": 76
+        }
+      ]
+    },
+    {
+      "page": 2,
+      "nextPage": 3,
+      "previousPage": 1,
+      "items": [
+        {
+          "id": 7,
+          "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+          "name": "Baldur's Gate II: Shadows of Amn",
+          "price": 66
+        },
+        {
+          "id": 8,
+          "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+          "name": "Persona 5 Royal",
+          "price": 88
+        },
+        {
+          "id": 9,
+          "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+          "name": "Portal 2",
+          "price": 55
+        },
+        {
+          "id": 10,
+          "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+          "name": "Grand Theft Auto: Vice City",
+          "price": 12
+        },
+        {
+          "id": 11,
+          "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+          "name": "Sid Meier's Civilization II",
+          "price": 24
+        },
+        {
+          "id": 12,
+          "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+          "name": "Quake",
+          "price": 33
+        }
+      ]
+    },
+    {
+      "page": 3,
+      "nextPage": null,
+      "previousPage": 2,
+      "items": [
+        {
+          "id": 13,
+          "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+          "name": "BioShock Infinite",
+          "price": 50
+        },
+        {
+          "id": 14,
+          "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+          "name": "The Elder Scrolls IV: Oblivion",
+          "price": 56
+        },
+        {
+          "id": 15,
+          "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+          "name": "Diablo",
+          "price": 12
+        },
+        {
+          "id": 16,
+          "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+          "name": "The Witcher 3: Wild Hunt",
+          "price": 88
+        },
+        {
+          "id": 17,
+          "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+          "name": "Company of Heroes",
+          "price": 34
+        },
+        {
+          "id": 18,
+          "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+          "name": "Half-Life: Alyx",
+          "price": 65
+        }
+      ]
+    }
+  ]
+}
