@@ -7,6 +7,6 @@ export const userState = createFeatureSelector<UserState>('user');
 export const selectUserWallet = createSelector(
   userState,
   (state: UserState) => {
-    return state?.wallet?.amount;
+    return state.wallet.amount;
   }
 );

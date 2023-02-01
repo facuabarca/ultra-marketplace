@@ -1,0 +1,7 @@
+<div class="row">
+    <ul class="list-group">
+        <ng-container *ngFor="let product of cartItems">
+            <app-product-basket [product]="product"></app-product-basket>
+        </ng-container>
+    </ul>
+</div>

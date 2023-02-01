@@ -1,0 +1,13 @@
+<li class="list-group-item d-flex mt-5">
+    <div class="image-parent" style="max-width: 10%;">
+
+        <img class="img-fluid" [src]="product.image" alt="Card image cap">
+    </div>
+    <div class="flex-grow-1">
+        <p class="ml-5">{{ product.name }}</p>
+        <p>${{product.price}}</p>
+    </div>
+    <div>
+        <button class="btn btn-danger">DELETE</button>
+    </div>
+</li>

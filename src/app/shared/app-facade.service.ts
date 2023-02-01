@@ -4,22 +4,38 @@ import { getUser } from '@app/modules/user/store/user.actions';
 import { getProducts } from '../modules/listing/store/listing.actions';
 import { addItemCart } from '../modules/cart/store/cart.actions';
 import { IProduct } from './models/shared.model';
-import { Observable, map, filter } from 'rxjs';
+import { Observable, map, filter, tap, combineLatest } from 'rxjs';
 import { selectUserWallet } from '../modules/user/store/user.selector';
-import { selectCartItems } from '@app/modules/cart/store/cart.selector';
+import {
+  getTotalPrice,
+  selectCartItems,
+} from '@app/modules/cart/store/cart.selector';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AppFacadeService {
-  walletAmount$: Observable<number | undefined>;
+  walletAmount$: Observable<number>;
+  cartItems$: Observable<IProduct[]>;
   cartCounter$: Observable<number>;
+  cartTotalPrice$: Observable<number>;
+  canUserPurchase$: Observable<boolean>;
 
   constructor(private store: Store) {
     this.walletAmount$ = this.store.select(selectUserWallet);
-    this.cartCounter$ = this.store
-      .select(selectCartItems)
-      .pipe(map((cartItems: IProduct[]) => cartItems.length));
+    this.cartItems$ = this.store.select(selectCartItems);
+    this.cartCounter$ = this.cartItems$.pipe(
+      map((cartItems: IProduct[]) => cartItems.length)
+    );
+    this.cartTotalPrice$ = this.store.select(getTotalPrice);
+    this.canUserPurchase$ = combineLatest([
+      this.walletAmount$,
+      this.cartTotalPrice$,
+    ]).pipe(
+      map(([walletAmount, cartTotalPrice]) => {
+        return Boolean(walletAmount >= cartTotalPrice);
+      })
+    );
   }
 
   loadUser(): void {
