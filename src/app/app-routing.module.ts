@@ -5,6 +5,11 @@ import { BasketModule } from './modules/basket/basket.module';
 const routes: Routes = [
   {
     path: '',
+    redirectTo: 'listing',
+    pathMatch: 'full',
+  },
+  {
+    path: 'listing',
     loadChildren: () =>
       import('./modules/listing/listing.module').then((m) => m.ListingModule),
   },
