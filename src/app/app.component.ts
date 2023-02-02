@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
 import { AppFacadeService } from './shared/app-facade.service';
 
 @Component({
@@ -6,11 +7,13 @@ import { AppFacadeService } from './shared/app-facade.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit {
-  constructor(private readonly appFacadeService: AppFacadeService) {}
+export class AppComponent {
+  showAlert$!: Observable<boolean>;
 
-  ngOnInit(): void {
+  constructor(private readonly appFacadeService: AppFacadeService) {
+    this.showAlert$ = this.appFacadeService.showAlert$;
     this.appFacadeService.loadUser();
   }
+
   title = 'ultra-marketplace';
 }

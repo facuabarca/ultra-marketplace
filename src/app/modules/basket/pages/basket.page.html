@@ -1,10 +1,17 @@
 <div class="container mt-5">
     <ng-container *ngIf="cartItems$ | async as cartItems">
-        <app-product-basket-list [cartItems]="cartItems"></app-product-basket-list>
-        <p>Total price: ${{ cartTotalPrice$ | async }}</p>
+        <ng-container *ngIf="cartItems.length > 0; else basketEmpty;">
+            <app-product-basket-list></app-product-basket-list>
+            <p>Total price: ${{ cartTotalPrice$ | async }}</p>
+            <button class="btn btn-primary" [disabled]="statusButtonCheckout$ | async">
+                Checkout
+            </button>
+        </ng-container>
     </ng-container>
-
-    <button>
-        {{ canPurchase$ | async }}
-    </button>
 </div>
+
+<ng-template #basketEmpty>
+    <h1>Basket empty!</h1>
+    <p>Please, add more products for continue purchasing!</p>
+    <button class="btn btn-primary" [routerLink]="'/'">Go To Home</button>
+</ng-template>

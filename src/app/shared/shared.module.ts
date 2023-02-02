@@ -1,14 +1,13 @@
 import { NgModule } from '@angular/core';
-import { AppFacadeService } from './app-facade.service';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { AlertComponent } from './components/alert/alert.component';
 @NgModule({
   imports: [CommonModule, RouterModule],
-  declarations: [FooterComponent, HeaderComponent],
-  exports: [FooterComponent, HeaderComponent],
+  declarations: [FooterComponent, HeaderComponent, AlertComponent],
+  exports: [FooterComponent, HeaderComponent, AlertComponent],
   // providers: [AppFacadeService],
 })
 export class SharedModule {}

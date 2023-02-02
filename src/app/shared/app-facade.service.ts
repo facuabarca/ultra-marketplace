@@ -1,15 +1,20 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { getUser } from '@app/modules/user/store/user.actions';
-import { getProducts } from '../modules/listing/store/listing.actions';
-import { addItemCart } from '../modules/cart/store/cart.actions';
+import {
+  addItemCart,
+  removeItemCart,
+} from '../modules/cart/store/cart.actions';
 import { IProductUI } from './models/shared.model';
-import { Observable, map, filter, tap, combineLatest } from 'rxjs';
+import { Observable, map, combineLatest } from 'rxjs';
 import { selectUserWallet } from '../modules/user/store/user.selector';
 import {
   getTotalPrice,
   selectCartItems,
 } from '@app/modules/cart/store/cart.selector';
+import { addAlert, removeAlert } from '@core/store/app.actions';
+import { Alert } from '../core/store/app.state';
+import { selectAlerts } from '@core/store/app.selector';
 
 @Injectable({
   providedIn: 'root',
@@ -18,9 +23,10 @@ export class AppFacadeService {
   walletAmount$: Observable<number>;
   cartItems$: Observable<IProductUI[]>;
   cartCounter$: Observable<number>;
-  // ToDo: Mover a modulo correspondiente;
   cartTotalPrice$: Observable<number>;
   canUserPurchase$: Observable<boolean>;
+  alert$: Observable<Alert>;
+  showAlert$: Observable<boolean>;
 
   constructor(private store: Store) {
     this.walletAmount$ = this.store.select(selectUserWallet);
@@ -37,6 +43,14 @@ export class AppFacadeService {
         return Boolean(walletAmount >= cartTotalPrice);
       })
     );
+    this.alert$ = this.store.select(selectAlerts);
+    this.showAlert$ = this.alert$.pipe(
+      map((alert: Alert) => {
+        console.log(alert);
+        console.log(Boolean(alert?.key));
+        return Boolean(alert?.key);
+      })
+    );
   }
 
   loadUser(): void {
@@ -45,5 +59,18 @@ export class AppFacadeService {
 
   addItemCart(product: IProductUI): void {
     this.store.dispatch(addItemCart({ product }));
+  }
+
+  removeItemCart(id: number): void {
+    this.store.dispatch(removeItemCart({ id }));
+  }
+
+  addAlert(alert: Alert): void {
+    console.log(alert);
+    this.store.dispatch(addAlert({ alert }));
+  }
+
+  removeAlert(): void {
+    this.store.dispatch(removeAlert({ alert: {} }));
   }
 }

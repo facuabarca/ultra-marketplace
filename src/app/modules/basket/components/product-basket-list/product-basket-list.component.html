@@ -1,6 +1,6 @@
 <div class="row">
     <ul class="list-group">
-        <ng-container *ngFor="let product of cartItems">
+        <ng-container *ngFor="let product of cartItems$ | async">
             <app-product-basket [product]="product"></app-product-basket>
         </ng-container>
     </ul>

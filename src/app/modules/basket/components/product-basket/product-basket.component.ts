@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { AppFacadeService } from '@app/shared/app-facade.service';
 import { IProductUI } from '../../../../shared/models/shared.model';
 
 @Component({
@@ -8,9 +9,10 @@ import { IProductUI } from '../../../../shared/models/shared.model';
 })
 export class ProductBasketComponent {
   @Input() product!: IProductUI;
-  @Output() onDeleteProduct = new EventEmitter<number>();
 
-  addProduct(): void {
-    this.onDeleteProduct.emit(this.product.id);
+  constructor(private readonly appFacadeService: AppFacadeService) {}
+
+  remove(): void {
+    this.appFacadeService.removeItemCart(this.product.id);
   }
 }
