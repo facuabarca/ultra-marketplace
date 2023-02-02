@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IProduct } from '@app/shared/models/shared.model';
+import { IProductUI } from '@app/shared/models/shared.model';
 import { Observable } from 'rxjs';
 import { ProductFacadeService } from '../../services/product-facade.service';
 import { AppFacadeService } from '../../../../shared/app-facade.service';
@@ -10,7 +10,7 @@ import { AppFacadeService } from '../../../../shared/app-facade.service';
   styleUrls: ['product-list.component.scss'],
 })
 export class ProductListComponent {
-  productsList$: Observable<IProduct[]>;
+  productsList$: Observable<IProductUI[]>;
   constructor(
     private readonly productFacadeService: ProductFacadeService,
     private readonly appFacadeService: AppFacadeService
@@ -18,7 +18,7 @@ export class ProductListComponent {
     this.productsList$ = this.productFacadeService.productsList$;
   }
 
-  addProduct(product: IProduct): void {
+  addProduct(product: IProductUI): void {
     this.appFacadeService.addItemCart(product);
   }
 }

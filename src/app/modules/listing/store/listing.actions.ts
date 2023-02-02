@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { IProduct } from '@app/shared/models/shared.model';
+import { IProductUI } from '@app/shared/models/shared.model';
 
 export const ActionTypes = {
   GET_PRODUCTS: '[LISTING] GET_PRODUCTS',
@@ -11,5 +11,5 @@ export const getProducts = createAction(ActionTypes.GET_PRODUCTS);
 
 export const getProductsSuccess = createAction(
   ActionTypes.GET_PRODUCTS_SUCCESS,
-  props<{ products: IProduct[] }>()
+  props<{ products: IProductUI[] }>()
 );

@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { IProduct } from '../../../../shared/models/shared.model';
+import { IProductUI } from '../../../../shared/models/shared.model';
 
 @Component({
   selector: 'app-product-basket',
@@ -7,7 +7,7 @@ import { IProduct } from '../../../../shared/models/shared.model';
   styleUrls: ['product-basket.component.scss'],
 })
 export class ProductBasketComponent {
-  @Input() product!: IProduct;
+  @Input() product!: IProductUI;
   @Output() onDeleteProduct = new EventEmitter<number>();
 
   addProduct(): void {

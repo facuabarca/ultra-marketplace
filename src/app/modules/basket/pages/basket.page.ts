@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { AppFacadeService } from '@app/shared/app-facade.service';
 import { Observable } from 'rxjs';
-import { IProduct } from '../../../shared/models/shared.model';
+import { IProductUI } from '../../../shared/models/shared.model';
 
 @Component({
   selector: 'app-basket',
@@ -9,7 +9,7 @@ import { IProduct } from '../../../shared/models/shared.model';
   styleUrls: ['basket.page.scss'],
 })
 export class BasketPage {
-  cartItems$: Observable<IProduct[]>;
+  cartItems$: Observable<IProductUI[]>;
   cartTotalPrice$: Observable<number>;
   canPurchase$: Observable<boolean>;
   constructor(private readonly appFacadeService: AppFacadeService) {

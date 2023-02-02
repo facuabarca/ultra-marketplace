@@ -3,7 +3,6 @@ import { CanActivate } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { AppFacadeService } from '../../../shared/app-facade.service';
-import { IProduct } from '../../../shared/models/shared.model';
 
 @Injectable()
 export class BasketGuard implements CanActivate {

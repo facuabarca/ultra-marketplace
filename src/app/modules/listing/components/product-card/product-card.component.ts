@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { IProduct } from '../../../../shared/models/shared.model';
+import { IProductUI } from '../../../../shared/models/shared.model';
 
 @Component({
   selector: 'app-product-card',
@@ -7,9 +7,9 @@ import { IProduct } from '../../../../shared/models/shared.model';
   styleUrls: ['product-card.component.scss'],
 })
 export class ProductCardComponent {
-  @Input() product!: IProduct;
+  @Input() product!: IProductUI;
+  @Input() disabled: boolean = false;
   @Output() onAddProduct = new EventEmitter();
-  disabled: boolean = false;
 
   addProduct(): void {
     this.disabled = !this.disabled;

@@ -15,3 +15,7 @@ export interface IProduct {
   name: string;
   price: number;
 }
+
+export interface IProductUI extends IProduct {
+  buttonStatus: boolean;
+}

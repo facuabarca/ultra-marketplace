@@ -1,6 +1,5 @@
 import { Component, Input, Output } from '@angular/core';
-import { IProduct } from '@app/shared/models/shared.model';
-import { Observable } from 'rxjs';
+import { IProductUI } from '@app/shared/models/shared.model';
 import { AppFacadeService } from '../../../../shared/app-facade.service';
 
 @Component({
@@ -9,6 +8,6 @@ import { AppFacadeService } from '../../../../shared/app-facade.service';
   styleUrls: ['product-basket-list.component.scss'],
 })
 export class ProductBasketListComponent {
-  @Input() cartItems!: IProduct[];
+  @Input() cartItems!: IProductUI[];
   constructor(private readonly appFacadeService: AppFacadeService) {}
 }

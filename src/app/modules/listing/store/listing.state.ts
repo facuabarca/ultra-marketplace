@@ -1,7 +1,7 @@
-import { IProduct } from '../../../shared/models/shared.model';
+import { IProductUI } from '../../../shared/models/shared.model';
 
 export interface ListingState {
-  products: IProduct[];
+  products: IProductUI[];
 }
 
 export const listingState: ListingState = { products: [] };
