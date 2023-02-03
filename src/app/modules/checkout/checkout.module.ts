@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 
-import { CheckoutPage } from './pages/checkout.page';
+import { CheckoutPage } from './pages/checkout/checkout.page';
 import { RouterModule } from '@angular/router';
 import { routes } from './checkout.routes';
 import { PersonalAddressComponent } from './components/personal-address/personal-address.component';
@@ -14,6 +14,7 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { CheckoutEffects } from './store/checkout.effects';
 import { checkoutReducers } from './store/checkout.reducer';
+import { CheckoutSuccessPage } from './pages/checkout-success/checkout-success.component';
 
 @NgModule({
   imports: [
@@ -24,8 +25,18 @@ import { checkoutReducers } from './store/checkout.reducer';
     CommonModule,
     SharedModule,
   ],
-  exports: [CheckoutPage, PersonalAddressComponent, PersonalDataComponent],
-  declarations: [CheckoutPage, PersonalAddressComponent, PersonalDataComponent],
+  declarations: [
+    CheckoutPage,
+    CheckoutSuccessPage,
+    PersonalAddressComponent,
+    PersonalDataComponent,
+  ],
+  exports: [
+    CheckoutPage,
+    CheckoutSuccessPage,
+    PersonalAddressComponent,
+    PersonalDataComponent,
+  ],
   providers: [CheckoutDataService, CheckoutFacadeService],
 })
 export class CheckoutModule {}

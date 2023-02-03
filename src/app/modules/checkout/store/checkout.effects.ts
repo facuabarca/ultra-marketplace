@@ -9,13 +9,15 @@ import {
 } from './checkout.actions';
 import { CheckoutDataService } from '../services/checkout-data.service';
 import { AppFacadeService } from '../../../shared/app-facade.service';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class CheckoutEffects {
   constructor(
     private readonly actions$: Actions,
     private readonly checkoutDataService: CheckoutDataService,
-    private readonly appFacadeService: AppFacadeService
+    private readonly appFacadeService: AppFacadeService,
+    private router: Router
   ) {}
 
   public purchaseProducts$ = createEffect(() => {
@@ -30,7 +32,8 @@ export class CheckoutEffects {
     return this.actions$.pipe(
       ofType(purchaseSuccess),
       tap(({ result }) => this.updateData(result)),
-      map(() => purchaseEnd())
+      map(() => purchaseEnd()),
+      tap(() => this.router.navigate(['/checkout/success']))
     );
   });
 
