@@ -1,14 +1,17 @@
 {
   "name": "ultra-marketplace",
   "version": "0.0.0",
+  "main": "main.js",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:prod": "npm run build -- -c production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",
-    "api": "json-server api/db.json --routes api/routes.json --no-cors=true"
+    "api": "json-server api/db.json --routes api/routes.json --no-cors=true",
+    "electron:local": "npm run build:prod && electron ."
   },
   "private": true,
   "dependencies": {
@@ -41,6 +44,7 @@
     "@types/jasmine": "~4.3.0",
     "@typescript-eslint/eslint-plugin": "5.48.1",
     "@typescript-eslint/parser": "5.48.1",
+    "electron": "^22.2.0",
     "eslint": "^8.31.0",
     "jasmine-core": "~4.5.0",
     "json-server": "^0.17.1",

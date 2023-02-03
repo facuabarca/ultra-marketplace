@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  api_url: 'api-ultra/',
+  api_url: 'http://localhost:3000/',
 };
