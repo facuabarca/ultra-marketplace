@@ -1,6 +1,5 @@
 import { Store } from '@ngrx/store';
 import { Observable, map, combineLatest } from 'rxjs';
-
 import { addAlert, removeAlert } from '@core/store/app.actions';
 import { Alert } from '../core/store/app.state';
 import { selectAlerts } from '@core/store/app.selector';
@@ -25,17 +24,12 @@ export class SharedFacadeService {
     private readonly listingFacadeService: ListingFacadeService
   ) {
     this.walletAmount$ = this.userFacadeService.walletAmount$;
-
     this.cartCounter$ = this.cartFacadeService.cartQuantity$;
-
-    this.alert$ = this.store.select(selectAlerts);
-
-    this.showAlert$ = this.alert$.pipe(
-      map((alert: Alert) => {
-        return Boolean(alert?.key);
-      })
-    );
     this.cartTotalPrice$ = this.getTotalPrice();
+    this.alert$ = this.store.select(selectAlerts);
+    this.showAlert$ = this.alert$.pipe(
+      map((alert: Alert) => Boolean(alert?.key))
+    );
   }
 
   addAlert(alert: Alert): void {
@@ -44,6 +38,10 @@ export class SharedFacadeService {
 
   removeAlert(): void {
     this.store.dispatch(removeAlert({ alert: {} }));
+  }
+
+  loadUser(): void {
+    this.userFacadeService.loadUser();
   }
 
   private getTotalPrice(): Observable<number> {

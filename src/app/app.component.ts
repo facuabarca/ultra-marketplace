@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { UserFacadeService } from './modules/user/services/user-facade.service';
+import { SharedFacadeService } from './shared/shared-facade.service';
 
 @Component({
   selector: 'app-root',
@@ -8,8 +8,8 @@ import { UserFacadeService } from './modules/user/services/user-facade.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
-  constructor(private readonly userFacadeService: UserFacadeService) {
-    this.userFacadeService.loadUser();
+  constructor(private readonly sharedFacadeService: SharedFacadeService) {
+    this.sharedFacadeService.loadUser();
   }
   title = 'ultra-marketplace';
 }
