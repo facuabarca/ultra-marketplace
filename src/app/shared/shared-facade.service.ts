@@ -1,16 +1,19 @@
-import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Observable, map } from 'rxjs';
+import { Observable, map, combineLatest } from 'rxjs';
 
 import { addAlert, removeAlert } from '@core/store/app.actions';
 import { Alert } from '../core/store/app.state';
 import { selectAlerts } from '@core/store/app.selector';
 import { CartFacadeService } from '../modules/cart/services/cart-facade.service';
 import { UserFacadeService } from '../modules/user/services/user-facade.service';
+import { ListingFacadeService } from '../modules/listing/services/listing-facade.service';
+import { IProductUI } from './models/shared.model';
+import { Injectable } from '@angular/core';
 
 @Injectable()
 export class SharedFacadeService {
   walletAmount$: Observable<number>;
+  cartTotalPrice$: Observable<number>;
   cartCounter$: Observable<number>;
   alert$: Observable<Alert>;
   showAlert$: Observable<boolean>;
@@ -18,7 +21,8 @@ export class SharedFacadeService {
   constructor(
     private readonly store: Store,
     private readonly cartFacadeService: CartFacadeService,
-    private readonly userFacadeService: UserFacadeService
+    private readonly userFacadeService: UserFacadeService,
+    private readonly listingFacadeService: ListingFacadeService
   ) {
     this.walletAmount$ = this.userFacadeService.walletAmount$;
 
@@ -31,6 +35,7 @@ export class SharedFacadeService {
         return Boolean(alert?.key);
       })
     );
+    this.cartTotalPrice$ = this.getTotalPrice();
   }
 
   addAlert(alert: Alert): void {
@@ -39,5 +44,21 @@ export class SharedFacadeService {
 
   removeAlert(): void {
     this.store.dispatch(removeAlert({ alert: {} }));
+  }
+
+  private getTotalPrice(): Observable<number> {
+    return combineLatest([
+      this.listingFacadeService.productsList$,
+      this.cartFacadeService.cartItems$,
+    ]).pipe(
+      map(([productsList, cartItems]) => {
+        return productsList
+          .filter((product: IProductUI) => cartItems.includes(product.id))
+          .reduce(
+            (total: number, product: IProductUI) => (total += product.price),
+            0
+          );
+      })
+    );
   }
 }

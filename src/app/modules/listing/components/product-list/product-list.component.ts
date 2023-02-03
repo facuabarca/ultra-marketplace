@@ -15,7 +15,7 @@ export class ProductListComponent {
     this.productsList$ = this.listingFacadeService.productsList$;
   }
 
-  addProduct(product: IProductUI): void {
+  addProduct(product: number): void {
     this.listingFacadeService.addItemCart(product);
   }
 }

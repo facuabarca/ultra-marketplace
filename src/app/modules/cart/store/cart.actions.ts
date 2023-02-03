@@ -1,5 +1,4 @@
 import { createAction, props } from '@ngrx/store';
-import { IProductUI } from '../../../shared/models/shared.model';
 
 export const ActionTypes = {
   ADD_ITEM_CART: '[CART] ADD_ITEM_CART',
@@ -9,7 +8,7 @@ export const ActionTypes = {
 
 export const addItemCart = createAction(
   ActionTypes.ADD_ITEM_CART,
-  props<{ product: IProductUI }>()
+  props<{ product: number }>()
 );
 
 export const removeItemCart = createAction(

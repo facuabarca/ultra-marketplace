@@ -13,7 +13,7 @@ import { UserFacadeService } from '../../user/services/user-facade.service';
 export class ListingFacadeService {
   productsApi$: Observable<IProductUI[]>;
   productsList$: Observable<IProductUI[]>;
-  cartItems$: Observable<IProductUI[]>;
+  cartItems$: Observable<number[]>;
   userProductsPurchased$: Observable<number[]>;
 
   constructor(
@@ -38,7 +38,7 @@ export class ListingFacadeService {
           return {
             ...product,
             disabled: cartItems.some(
-              (cartItem: IProductUI) => cartItem.id === product.id
+              (cartItem: number) => cartItem === product.id
             ),
           };
         });
@@ -51,7 +51,7 @@ export class ListingFacadeService {
     this.store.dispatch(getProducts());
   }
 
-  addItemCart(product: IProductUI): void {
+  addItemCart(product: number): void {
     this.cartFacadeService.addItemCart(product);
   }
 }

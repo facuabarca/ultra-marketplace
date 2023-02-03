@@ -1,7 +1,5 @@
-import { IProductUI } from '../../../shared/models/shared.model';
-
 export interface CartState {
-  cartItems: IProductUI[];
+  cartItems: number[];
 }
 
 export const cartState: CartState = {

@@ -9,7 +9,7 @@ import { SharedFacadeService } from '../../shared-facade.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderComponent {
-  walletAmount$: Observable<number | undefined>;
+  walletAmount$: Observable<number>;
   cartCounter$: Observable<number>;
   showAlert$!: Observable<boolean>;
   constructor(private sharedFacadeService: SharedFacadeService) {

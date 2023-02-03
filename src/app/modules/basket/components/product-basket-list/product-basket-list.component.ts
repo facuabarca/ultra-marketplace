@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { IProductUI } from '@app/shared/models/shared.model';
 import { Observable } from 'rxjs';
 import { BasketFacadeService } from '../../services/basket-facade.service';
+import { IProductUI } from '../../../../shared/models/shared.model';
 
 @Component({
   selector: 'app-product-basket-list',
@@ -9,8 +9,8 @@ import { BasketFacadeService } from '../../services/basket-facade.service';
   styleUrls: ['product-basket-list.component.scss'],
 })
 export class ProductBasketListComponent {
-  cartItems$: Observable<IProductUI[]>;
+  basketList$: Observable<IProductUI[]>;
   constructor(private readonly basketFacadeService: BasketFacadeService) {
-    this.cartItems$ = this.basketFacadeService.cartItems$;
+    this.basketList$ = this.basketFacadeService.basketList$;
   }
 }

@@ -10,6 +10,6 @@ export class ProductCardComponent {
   @Output() onAddProduct = new EventEmitter();
 
   addProduct(): void {
-    this.onAddProduct.emit(this.product);
+    this.onAddProduct.emit(this.product.id);
   }
 }

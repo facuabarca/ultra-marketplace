@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { combineLatest, map, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import {
   selectUserProductsPurchased,
   selectUserWallet,
 } from '../store/user.selector';
-import { CartFacadeService } from '../../cart/services/cart-facade.service';
 import {
   getUser,
   updateUserProductsPurchased,
@@ -15,24 +14,12 @@ import {
 @Injectable()
 export class UserFacadeService {
   walletAmount$: Observable<number>;
-  canPurchase$: Observable<boolean>;
   userProductsPurchased$: Observable<number[]>;
 
-  constructor(
-    private store: Store,
-    private readonly cartFacadeService: CartFacadeService
-  ) {
+  constructor(private store: Store) {
     this.walletAmount$ = this.store.select(selectUserWallet);
     this.userProductsPurchased$ = this.store.select(
       selectUserProductsPurchased
-    );
-    this.canPurchase$ = combineLatest([
-      this.walletAmount$,
-      this.cartFacadeService.cartTotalPrice$,
-    ]).pipe(
-      map(([walletAmount, cartTotalPrice]) => {
-        return Boolean(walletAmount >= cartTotalPrice);
-      })
     );
   }
 

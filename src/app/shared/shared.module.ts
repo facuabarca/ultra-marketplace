@@ -6,9 +6,9 @@ import { RouterModule } from '@angular/router';
 import { AlertComponent } from './components/alert/alert.component';
 import { ErrorDirective } from './directives/error-input.directive';
 import { SharedFacadeService } from './shared-facade.service';
+
 @NgModule({
   imports: [CommonModule, RouterModule],
-  providers: [SharedFacadeService],
   declarations: [
     FooterComponent,
     HeaderComponent,
@@ -16,6 +16,6 @@ import { SharedFacadeService } from './shared-facade.service';
     ErrorDirective,
   ],
   exports: [FooterComponent, HeaderComponent, AlertComponent, ErrorDirective],
-  // providers: [AppFacadeService],
+  providers: [SharedFacadeService],
 })
 export class SharedModule {}
