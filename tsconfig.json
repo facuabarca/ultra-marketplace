@@ -23,6 +23,7 @@
       "ES2022",
       "dom"
     ],
+    "noUnusedLocals": true,
     "paths": {
       "@environment/*": ["src/environments/*"],
       "@ui/*": ["src/app/ui/*"],

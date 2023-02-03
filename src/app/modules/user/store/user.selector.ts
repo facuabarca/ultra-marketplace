@@ -10,3 +10,8 @@ export const selectUserWallet = createSelector(
     return state.wallet.amount;
   }
 );
+
+export const selectUserProductsPurchased = createSelector(
+  userState,
+  (state: UserState) => state?.productsPurchased ?? []
+);

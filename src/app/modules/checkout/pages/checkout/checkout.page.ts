@@ -3,7 +3,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IProductUI } from '@app/shared/models/shared.model';
 import { combineLatest, Subject, takeUntil } from 'rxjs';
 import { AppFacadeService } from '../../../../shared/app-facade.service';
-import { PlaceOrderInput } from '../../../../shared/models/shared.model';
 import { Purchase } from '../../store/checkout.state';
 import { CheckoutFacadeService } from '../../services/checkout-facade.service';
 

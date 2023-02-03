@@ -16,6 +16,7 @@
       ],
       "rules": {
         "@typescript-eslint/no-inferrable-types": "off",
+        // "@angular-eslint/prefer-on-push-component-change-detection": "warn",
         "@angular-eslint/directive-selector": [
           "error",
           {

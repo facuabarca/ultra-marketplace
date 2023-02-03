@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { map, mergeMap, tap } from 'rxjs';
+import { map, mergeMap } from 'rxjs';
 import { getProducts, getProductsSuccess } from './listing.actions';
 import { ProductDataService } from '../services/product-data.service';
 import { IProduct, IProductUI } from '../../../shared/models/shared.model';

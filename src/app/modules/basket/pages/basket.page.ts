@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { AppFacadeService } from '@app/shared/app-facade.service';
 import { Observable, map, tap } from 'rxjs';
 import { IProductUI } from '../../../shared/models/shared.model';
-import { Alert } from '../../../core/store/app.state';
 
 @Component({
   selector: 'app-basket',

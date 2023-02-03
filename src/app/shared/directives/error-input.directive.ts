@@ -1,4 +1,4 @@
-import { Directive, ElementRef, HostBinding } from '@angular/core';
+import { Directive, HostBinding } from '@angular/core';
 import { NgControl } from '@angular/forms';
 
 @Directive({

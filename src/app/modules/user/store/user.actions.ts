@@ -1,4 +1,4 @@
-import { UserState, Wallet } from '@app/modules/user/store/user.state';
+import { UserState } from '@app/modules/user/store/user.state';
 import { createAction, props } from '@ngrx/store';
 
 export const ActionTypes = {

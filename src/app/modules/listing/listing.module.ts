@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { routes } from './listing.routes';
 
-import { ListingPage } from './pages/listing/listing.page';
+import { ListingPage } from './pages/listing.page';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductCardComponent } from './components/product-card/product-card.component';
 import { CommonModule } from '@angular/common';

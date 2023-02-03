@@ -18,7 +18,7 @@ export const userReducers = createReducer(
     return {
       ...state,
       productsPurchased: [
-        ...(state?.productsPurchased?.concat(productsPurchased) ?? []),
+        ...(state.productsPurchased?.concat(productsPurchased) ?? []),
       ],
     };
   })

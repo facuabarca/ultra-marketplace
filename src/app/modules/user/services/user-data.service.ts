@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { IUserData } from '@app/shared/models/shared.model';
-import { map, Observable, tap } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { ApiBridgeService } from '../../../core/services/api-bridge.service';
 
 @Injectable()

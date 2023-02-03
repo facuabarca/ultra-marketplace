@@ -1,6 +1,6 @@
 import { createReducer, on } from '@ngrx/store';
 import { addAlert, removeAlert } from './app.actions';
-import { appState, AppState, Alert } from './app.state';
+import { appState, AppState } from './app.state';
 export const appReducers = createReducer(
   appState,
   on(addAlert, (state: AppState, { alert }) => {

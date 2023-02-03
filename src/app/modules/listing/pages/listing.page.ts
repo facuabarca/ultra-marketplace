@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ProductFacadeService } from '../../services/product-facade.service';
+import { ProductFacadeService } from '../services/product-facade.service';
 
 @Component({
   selector: 'app-listing-page',

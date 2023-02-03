@@ -11,7 +11,10 @@ import {
 } from '../modules/cart/store/cart.actions';
 import { IProductUI } from './models/shared.model';
 import { Observable, map, combineLatest } from 'rxjs';
-import { selectUserWallet } from '../modules/user/store/user.selector';
+import {
+  selectUserWallet,
+  selectUserProductsPurchased,
+} from '../modules/user/store/user.selector';
 import {
   getTotalPrice,
   selectCartItems,
@@ -32,6 +35,7 @@ export class AppFacadeService {
   canUserPurchase$: Observable<boolean>;
   alert$: Observable<Alert>;
   showAlert$: Observable<boolean>;
+  userProductsPurchased$: Observable<number[]>;
 
   constructor(private store: Store) {
     this.walletAmount$ = this.store.select(selectUserWallet);
@@ -55,6 +59,9 @@ export class AppFacadeService {
         console.log(Boolean(alert?.key));
         return Boolean(alert?.key);
       })
+    );
+    this.userProductsPurchased$ = this.store.select(
+      selectUserProductsPurchased
     );
   }
 
