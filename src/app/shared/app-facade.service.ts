@@ -28,9 +28,9 @@ import { updateUserProductsPurchased } from '../modules/user/store/user.actions'
   providedIn: 'root',
 })
 export class AppFacadeService {
-  walletAmount$: Observable<number>;
-  cartItems$: Observable<IProductUI[]>;
-  cartCounter$: Observable<number>;
+  walletAmount$: Observable<number>; // Migrado
+  cartItems$: Observable<IProductUI[]>; // Migrado
+  cartCounter$: Observable<number>; // Migrado
   cartTotalPrice$: Observable<number>;
   canUserPurchase$: Observable<boolean>;
   alert$: Observable<Alert>;
@@ -55,8 +55,6 @@ export class AppFacadeService {
     this.alert$ = this.store.select(selectAlerts);
     this.showAlert$ = this.alert$.pipe(
       map((alert: Alert) => {
-        console.log(alert);
-        console.log(Boolean(alert?.key));
         return Boolean(alert?.key);
       })
     );
@@ -90,7 +88,6 @@ export class AppFacadeService {
   }
 
   addAlert(alert: Alert): void {
-    console.log(alert);
     this.store.dispatch(addAlert({ alert }));
   }
 

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { AppFacadeService } from '@app/shared/app-facade.service';
 import { IProductUI } from '@app/shared/models/shared.model';
 import { Observable } from 'rxjs';
+import { BasketFacadeService } from '../../services/basket-facade.service';
 
 @Component({
   selector: 'app-product-basket-list',
@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 })
 export class ProductBasketListComponent {
   cartItems$: Observable<IProductUI[]>;
-  constructor(private readonly appFacadeService: AppFacadeService) {
-    this.cartItems$ = this.appFacadeService.cartItems$;
+  constructor(private readonly basketFacadeService: BasketFacadeService) {
+    this.cartItems$ = this.basketFacadeService.cartItems$;
   }
 }

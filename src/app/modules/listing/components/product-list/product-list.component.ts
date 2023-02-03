@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { IProductUI } from '@app/shared/models/shared.model';
-import { Observable, combineLatest, map, filter } from 'rxjs';
-import { ProductFacadeService } from '../../services/product-facade.service';
-import { AppFacadeService } from '../../../../shared/app-facade.service';
+import { Observable, combineLatest, map } from 'rxjs';
+import { ListingFacadeService } from '../../services/listing-facade.service';
 
 @Component({
   selector: 'app-product-list',
@@ -11,16 +10,13 @@ import { AppFacadeService } from '../../../../shared/app-facade.service';
 })
 export class ProductListComponent {
   productsList$: Observable<IProductUI[]>;
-  constructor(
-    private readonly productFacadeService: ProductFacadeService,
-    private readonly appFacadeService: AppFacadeService
-  ) {
+
+  constructor(private readonly listingFacadeService: ListingFacadeService) {
     this.productsList$ = combineLatest([
-      this.productFacadeService.productsList$,
-      this.appFacadeService.cartItems$,
-      this.appFacadeService.userProductsPurchased$,
+      this.listingFacadeService.productsList$,
+      this.listingFacadeService.cartItems$,
+      this.listingFacadeService.userProductsPurchased$,
     ]).pipe(
-      filter((data) => data[0].length > 0),
       map(([productsApi, cartItems, productsPurchased]) => {
         productsApi = productsApi.filter(
           (product: IProductUI) => !productsPurchased.includes(product.id)
@@ -28,7 +24,7 @@ export class ProductListComponent {
         productsApi = productsApi.map((product: IProductUI) => {
           return {
             ...product,
-            buttonStatus: cartItems.some(
+            disabled: cartItems.some(
               (cartItem: IProductUI) => cartItem.id === product.id
             ),
           };
@@ -39,6 +35,6 @@ export class ProductListComponent {
   }
 
   addProduct(product: IProductUI): void {
-    this.appFacadeService.addItemCart(product);
+    this.listingFacadeService.addItemCart(product);
   }
 }

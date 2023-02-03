@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { AppFacadeService } from '@app/shared/app-facade.service';
 import { IProductUI } from '../../../../shared/models/shared.model';
+import { BasketFacadeService } from '../../services/basket-facade.service';
 
 @Component({
   selector: 'app-product-basket',
@@ -10,9 +10,9 @@ import { IProductUI } from '../../../../shared/models/shared.model';
 export class ProductBasketComponent {
   @Input() product!: IProductUI;
 
-  constructor(private readonly appFacadeService: AppFacadeService) {}
+  constructor(private readonly basketFacadeService: BasketFacadeService) {}
 
   remove(): void {
-    this.appFacadeService.removeItemCart(this.product.id);
+    this.basketFacadeService.removeCartItem(this.product.id);
   }
 }

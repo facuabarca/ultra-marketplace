@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ProductFacadeService } from '../services/product-facade.service';
+import { ListingFacadeService } from '../services/listing-facade.service';
 
 @Component({
   selector: 'app-listing-page',
@@ -7,7 +7,7 @@ import { ProductFacadeService } from '../services/product-facade.service';
   styleUrls: ['listing.page.scss'],
 })
 export class ListingPage {
-  constructor(private readonly productFacadeService: ProductFacadeService) {
-    this.productFacadeService.loadProducts();
+  constructor(private readonly listingFacadeService: ListingFacadeService) {
+    this.listingFacadeService.loadProducts();
   }
 }

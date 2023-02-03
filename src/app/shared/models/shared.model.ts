@@ -18,7 +18,7 @@ export interface IProduct {
 }
 
 export interface IProductUI extends IProduct {
-  buttonStatus: boolean;
+  disabled: boolean;
 }
 
 export interface PlaceOrderInput {

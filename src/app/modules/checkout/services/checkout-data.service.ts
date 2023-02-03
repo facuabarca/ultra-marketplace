@@ -10,6 +10,6 @@ export class CheckoutDataService {
     return of({
       purchase: input,
       status: true,
-    }).pipe(delay(2000));
+    }).pipe(delay(500));
   }
 }

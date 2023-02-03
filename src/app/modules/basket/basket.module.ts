@@ -7,6 +7,7 @@ import { ProductBasketListComponent } from './components/product-basket-list/pro
 import { ProductBasketComponent } from './components/product-basket/product-basket.component';
 import { CommonModule } from '@angular/common';
 import { BasketGuard } from './guards/basket.guard';
+import { BasketFacadeService } from './services/basket-facade.service';
 
 @NgModule({
   imports: [RouterModule.forChild(routes), CommonModule],
@@ -16,6 +17,6 @@ import { BasketGuard } from './guards/basket.guard';
     ProductBasketListComponent,
     ProductBasketComponent,
   ],
-  providers: [BasketGuard],
+  providers: [BasketGuard, BasketFacadeService],
 })
 export class BasketModule {}

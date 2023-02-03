@@ -19,7 +19,7 @@ export class ListingEffects {
       map((products: IProduct[]) =>
         products.map((product: IProduct) => ({
           ...product,
-          buttonStatus: false,
+          disabled: false,
         }))
       ),
       map((products: IProductUI[]) => getProductsSuccess({ products }))

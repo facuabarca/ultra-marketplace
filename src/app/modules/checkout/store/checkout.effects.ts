@@ -8,15 +8,15 @@ import {
   purchaseSuccess,
 } from './checkout.actions';
 import { CheckoutDataService } from '../services/checkout-data.service';
-import { AppFacadeService } from '../../../shared/app-facade.service';
 import { Router } from '@angular/router';
+import { CheckoutFacadeService } from '../services/checkout-facade.service';
 
 @Injectable()
 export class CheckoutEffects {
   constructor(
     private readonly actions$: Actions,
     private readonly checkoutDataService: CheckoutDataService,
-    private readonly appFacadeService: AppFacadeService,
+    private readonly checkoutFacadeService: CheckoutFacadeService,
     private router: Router
   ) {}
 
@@ -38,9 +38,9 @@ export class CheckoutEffects {
   });
 
   private updateData(result: PlaceOrderResult): void {
-    this.appFacadeService.updateWallet(result.purchase.totalPrice),
-      this.appFacadeService.cleanCart();
-    this.appFacadeService.updateProductsPurchased(
+    this.checkoutFacadeService.updateWallet(result.purchase.totalPrice);
+    this.checkoutFacadeService.cleanCart();
+    this.checkoutFacadeService.updateProductsPurchased(
       result.purchase.purchasedProducts
     );
   }

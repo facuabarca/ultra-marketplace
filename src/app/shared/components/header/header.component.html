@@ -20,3 +20,6 @@
       </div>
     </div>
   </nav>
+  <ng-container *ngIf="showAlert$ | async">
+    <app-alert></app-alert>
+  </ng-container>

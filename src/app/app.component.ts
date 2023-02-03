@@ -1,19 +1,15 @@
-import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
-import { AppFacadeService } from './shared/app-facade.service';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { UserFacadeService } from './modules/user/services/user-facade.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
-  showAlert$!: Observable<boolean>;
-
-  constructor(private readonly appFacadeService: AppFacadeService) {
-    this.showAlert$ = this.appFacadeService.showAlert$;
-    this.appFacadeService.loadUser();
+  constructor(private readonly userFacadeService: UserFacadeService) {
+    this.userFacadeService.loadUser();
   }
-
   title = 'ultra-marketplace';
 }

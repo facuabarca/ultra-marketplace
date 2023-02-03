@@ -2,14 +2,14 @@ import { Injectable } from '@angular/core';
 import { CanActivate } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { AppFacadeService } from '../../../shared/app-facade.service';
+import { BasketFacadeService } from '../services/basket-facade.service';
 
 @Injectable()
 export class BasketGuard implements CanActivate {
-  constructor(private readonly appFacadeService: AppFacadeService) {}
+  constructor(private readonly basketFacadeService: BasketFacadeService) {}
 
   canActivate(): Observable<boolean> {
-    return this.appFacadeService.cartCounter$.pipe(
+    return this.basketFacadeService.cartQuantity$.pipe(
       map((quantity: number) => Boolean(quantity > 0))
     );
   }

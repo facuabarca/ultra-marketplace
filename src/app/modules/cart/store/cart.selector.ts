@@ -15,3 +15,8 @@ export const getTotalPrice = createSelector(cartState, (state: CartState) => {
     0
   );
 });
+
+export const selectQuantity = createSelector(
+  cartState,
+  (state: CartState) => state.cartItems.length
+);

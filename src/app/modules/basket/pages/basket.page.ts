@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { AppFacadeService } from '@app/shared/app-facade.service';
-import { Observable, map, tap } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { IProductUI } from '../../../shared/models/shared.model';
+import { BasketFacadeService } from '../services/basket-facade.service';
 
 @Component({
   selector: 'app-basket',
@@ -14,29 +14,16 @@ export class BasketPage {
   statusButtonCheckout$: Observable<boolean>;
   userCanPurchase$: Observable<boolean>;
 
-  constructor(private readonly appFacadeService: AppFacadeService) {
-    this.cartItems$ = this.appFacadeService.cartItems$;
-    this.cartTotalPrice$ = this.appFacadeService.cartTotalPrice$;
-    this.userCanPurchase$ = this.appFacadeService.canUserPurchase$.pipe(
-      tap((status: boolean) => {
-        if (!status) this.showError();
-      })
-    );
-
+  constructor(private readonly basketFacadeService: BasketFacadeService) {
+    this.cartItems$ = this.basketFacadeService.cartItems$;
+    this.cartTotalPrice$ = this.basketFacadeService.cartTotalPrice$;
+    this.userCanPurchase$ = this.basketFacadeService.userCanPurchase$;
     this.statusButtonCheckout$ = this.userCanPurchase$.pipe(
       map((data: boolean) => !data)
     );
   }
 
   removeCartItem(id: number): void {
-    this.appFacadeService.removeItemCart(id);
-  }
-
-  private showError(): void {
-    this.appFacadeService.addAlert({
-      key: 'alert alert-danger',
-      value:
-        'Oops, you do not have enough credit. Remove products from your cart to checkout.',
-    });
+    this.basketFacadeService.removeCartItem(id);
   }
 }

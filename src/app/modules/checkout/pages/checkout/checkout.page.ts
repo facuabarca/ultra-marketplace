@@ -2,7 +2,6 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IProductUI } from '@app/shared/models/shared.model';
 import { combineLatest, Subject, takeUntil } from 'rxjs';
-import { AppFacadeService } from '../../../../shared/app-facade.service';
 import { Purchase } from '../../store/checkout.state';
 import { CheckoutFacadeService } from '../../services/checkout-facade.service';
 
@@ -19,7 +18,6 @@ export class CheckoutPage implements OnInit, OnDestroy {
 
   constructor(
     private fb: FormBuilder,
-    private readonly appFacadeService: AppFacadeService,
     private readonly checkoutFacadeService: CheckoutFacadeService
   ) {
     this.getData();
@@ -74,8 +72,8 @@ export class CheckoutPage implements OnInit, OnDestroy {
 
   private getData(): void {
     combineLatest([
-      this.appFacadeService.cartTotalPrice$,
-      this.appFacadeService.cartItems$,
+      this.checkoutFacadeService.totalPrice$,
+      this.checkoutFacadeService.cartItems$,
     ])
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(([cartTotalPrice, cartItems]) => {
