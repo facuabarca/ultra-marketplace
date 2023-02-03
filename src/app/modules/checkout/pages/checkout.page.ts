@@ -4,6 +4,8 @@ import { IProductUI } from '@app/shared/models/shared.model';
 import { combineLatest, Subject, takeUntil } from 'rxjs';
 import { AppFacadeService } from '../../../shared/app-facade.service';
 import { PlaceOrderInput } from '../../../shared/models/shared.model';
+import { Purchase } from '../store/checkout.state';
+import { CheckoutFacadeService } from '../services/checkout-facade.service';
 
 @Component({
   selector: 'app-checkout',
@@ -18,7 +20,8 @@ export class CheckoutPage implements OnInit, OnDestroy {
 
   constructor(
     private fb: FormBuilder,
-    private readonly appFacadeService: AppFacadeService
+    private readonly appFacadeService: AppFacadeService,
+    private readonly checkoutFacadeService: CheckoutFacadeService
   ) {
     this.getData();
   }
@@ -33,18 +36,16 @@ export class CheckoutPage implements OnInit, OnDestroy {
   }
 
   onSubmit(): void {
-    const input = this.buildInput();
+    const input = this.buildPucharseInput();
+    this.checkoutFacadeService.purchase(input);
   }
 
-  private buildInput(): PlaceOrderInput {
+  private buildPucharseInput(): Purchase {
     const dataForm = this.form.getRawValue();
     return {
-      products: this.cartItems.map((product: IProductUI) => ({
-        id: product.id,
-        name: product.name,
-        image: product.image,
-        price: product.price,
-      })),
+      purchasedProducts: this.cartItems.map(
+        (product: IProductUI) => product.id
+      ),
       user: {
         name: dataForm.personalData.name,
         surname: dataForm.personalData.surname,

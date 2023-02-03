@@ -1,3 +1,4 @@
+import { Purchase } from '../../modules/checkout/store/checkout.state';
 export interface IUserData {
   id: number;
   name: string;
@@ -22,13 +23,12 @@ export interface IProductUI extends IProduct {
 
 export interface PlaceOrderInput {
   user: IUser;
-  products: IProduct[];
-  totalPrice: number;
+  products: number[];
 }
 
 export interface PlaceOrderResult {
   status: boolean;
-  wallet: IWallet;
+  purchase: Purchase;
 }
 
 export interface IUser {

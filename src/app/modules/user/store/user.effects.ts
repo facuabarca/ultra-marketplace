@@ -19,12 +19,4 @@ export class UserEffects {
       map((user: IUserData) => getUserSuccess({ user }))
     );
   });
-
-  public getUserWallet$ = createEffect(() => {
-    return this.actions$.pipe(
-      ofType(getUser),
-      mergeMap(() => this.userDataService.getUser(5564)),
-      map((user: IUserData) => getUserSuccess({ user: { ...user } }))
-    );
-  });
 }

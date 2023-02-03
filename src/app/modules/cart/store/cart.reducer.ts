@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import { addItemCart, removeItemCart } from './cart.actions';
+import { addItemCart, removeItemCart, cleanCart } from './cart.actions';
 import { CartState, cartState } from './cart.state';
 import { IProductUI } from '../../../shared/models/shared.model';
 export const cartReducers = createReducer(
@@ -15,5 +15,9 @@ export const cartReducers = createReducer(
         (cartItem: IProductUI) => cartItem.id !== id
       ),
     };
+  }),
+
+  on(cleanCart, (state: CartState) => {
+    return { ...state, cartItems: [] };
   })
 );

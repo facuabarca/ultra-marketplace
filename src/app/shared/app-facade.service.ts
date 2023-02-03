@@ -1,8 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { getUser } from '@app/modules/user/store/user.actions';
+import {
+  getUser,
+  updateUserWallet,
+} from '@app/modules/user/store/user.actions';
 import {
   addItemCart,
+  cleanCart,
   removeItemCart,
 } from '../modules/cart/store/cart.actions';
 import { IProductUI } from './models/shared.model';
@@ -15,6 +19,7 @@ import {
 import { addAlert, removeAlert } from '@core/store/app.actions';
 import { Alert } from '../core/store/app.state';
 import { selectAlerts } from '@core/store/app.selector';
+import { updateUserProductsPurchased } from '../modules/user/store/user.actions';
 
 @Injectable({
   providedIn: 'root',
@@ -57,12 +62,24 @@ export class AppFacadeService {
     this.store.dispatch(getUser());
   }
 
+  updateWallet(amountSpended: number): void {
+    this.store.dispatch(updateUserWallet({ amount: amountSpended }));
+  }
+
+  updateProductsPurchased(productsPurchased: number[]): void {
+    this.store.dispatch(updateUserProductsPurchased({ productsPurchased }));
+  }
+
   addItemCart(product: IProductUI): void {
     this.store.dispatch(addItemCart({ product }));
   }
 
   removeItemCart(id: number): void {
     this.store.dispatch(removeItemCart({ id }));
+  }
+
+  cleanCart(): void {
+    this.store.dispatch(cleanCart());
   }
 
   addAlert(alert: Alert): void {
