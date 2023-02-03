@@ -3,7 +3,7 @@ import { IProductUI } from '@app/shared/models/shared.model';
 import { Observable, tap } from 'rxjs';
 import { CartFacadeService } from '../../cart/services/cart-facade.service';
 import { UserFacadeService } from '../../user/services/user-facade.service';
-import { AppFacadeService } from '../../../shared/app-facade.service';
+import { SharedFacadeService } from '../../../shared/shared-facade.service';
 
 @Injectable()
 export class BasketFacadeService {
@@ -14,7 +14,7 @@ export class BasketFacadeService {
   constructor(
     private readonly cartFacadeService: CartFacadeService,
     private readonly userFacadeService: UserFacadeService,
-    private readonly appFacadeService: AppFacadeService
+    private readonly sharedFacadeService: SharedFacadeService
   ) {
     this.cartItems$ = this.cartFacadeService.cartItems$;
     this.cartQuantity$ = this.cartFacadeService.cartQuantity$;
@@ -31,7 +31,7 @@ export class BasketFacadeService {
   }
 
   private showAlert(): void {
-    this.appFacadeService.addAlert({
+    this.sharedFacadeService.addAlert({
       key: 'alert alert-danger',
       value:
         'Oops, you do not have enough credit. Remove products from your cart to checkout.',

@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Observable } from 'rxjs';
-import { AppFacadeService } from '../../app-facade.service';
+import { SharedFacadeService } from '../../shared-facade.service';
 
 @Component({
   selector: 'app-header',
@@ -12,9 +12,9 @@ export class HeaderComponent {
   walletAmount$: Observable<number | undefined>;
   cartCounter$: Observable<number>;
   showAlert$!: Observable<boolean>;
-  constructor(private appFacadeService: AppFacadeService) {
-    this.walletAmount$ = this.appFacadeService.walletAmount$;
-    this.cartCounter$ = this.appFacadeService.cartCounter$;
-    this.showAlert$ = this.appFacadeService.showAlert$;
+  constructor(private sharedFacadeService: SharedFacadeService) {
+    this.walletAmount$ = this.sharedFacadeService.walletAmount$;
+    this.cartCounter$ = this.sharedFacadeService.cartCounter$;
+    this.showAlert$ = this.sharedFacadeService.showAlert$;
   }
 }

@@ -1,7 +1,7 @@
 import { Component, OnDestroy } from '@angular/core';
-import { AppFacadeService } from '@app/shared/app-facade.service';
 import { Observable, timer, Subject, takeUntil } from 'rxjs';
 import { Alert } from '../../../core/store/app.state';
+import { SharedFacadeService } from '../../shared-facade.service';
 
 @Component({
   selector: 'app-alert',
@@ -12,12 +12,12 @@ export class AlertComponent implements OnDestroy {
 
   private unsubscribe$ = new Subject<void>();
 
-  constructor(private readonly appFacadeService: AppFacadeService) {
-    this.alert$ = this.appFacadeService.alert$;
+  constructor(private readonly sharedFacadeService: SharedFacadeService) {
+    this.alert$ = this.sharedFacadeService.alert$;
     timer(5000)
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(() => {
-        this.appFacadeService.removeAlert();
+        this.sharedFacadeService.removeAlert();
       });
   }
 
