@@ -1,8 +1,8 @@
 import { Store } from '@ngrx/store';
 import { Observable, map, combineLatest } from 'rxjs';
-import { addAlert, removeAlert } from '@core/store/app.actions';
+import { addAlert, removeAlert } from '../core/store/app.actions';
 import { Alert } from '../core/store/app.state';
-import { selectAlerts } from '@core/store/app.selector';
+import { selectAlerts } from '../core/store/app.selector';
 import { CartFacadeService } from '../modules/cart/services/cart-facade.service';
 import { UserFacadeService } from '../modules/user/services/user-facade.service';
 import { ListingFacadeService } from '../modules/listing/services/listing-facade.service';

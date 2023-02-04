@@ -4,7 +4,7 @@ import { selectProducts } from '../store/listing.selector';
 import { getProducts } from '../store/listing.actions';
 import { combineLatest, map, Observable } from 'rxjs';
 import { IProductUI } from '../../../shared/models/shared.model';
-import { CartFacadeService } from '@app/modules/cart/services/cart-facade.service';
+import { CartFacadeService } from '../../cart/services/cart-facade.service';
 import { UserFacadeService } from '../../user/services/user-facade.service';
 
 @Injectable({

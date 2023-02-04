@@ -4,12 +4,12 @@ import {
   addItemCart,
   cleanCart,
   removeItemCart,
-} from '@app/modules/cart/store/cart.actions';
+} from '../../cart/store/cart.actions';
 import { Observable } from 'rxjs';
 import {
   selectCartItems,
   selectQuantity,
-} from '@app/modules/cart/store/cart.selector';
+} from '../../cart/store/cart.selector';
 
 @Injectable()
 export class CartFacadeService {

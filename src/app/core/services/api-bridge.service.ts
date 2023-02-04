@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment as env } from '@environment/environment';
 import { Observable } from 'rxjs';
+import { environment as env } from '../../../environments/environment';
 
 @Injectable()
 export class ApiBridgeService {
@@ -16,14 +16,5 @@ export class ApiBridgeService {
       );
     }
     return this.httpClient.get<T>(env.api_url + url, { params });
-  }
-
-  post<T>(url: string, body: any = {}, headers?: any): Observable<T> {
-    return this.httpClient.post<T>(env.api_url + url, body, {
-      headers: new HttpHeaders({
-        ...headers,
-        'Content-Type': 'application/json; charset=utf-8',
-      }),
-    });
   }
 }
