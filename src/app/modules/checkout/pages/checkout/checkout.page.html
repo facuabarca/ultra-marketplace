@@ -14,7 +14,7 @@
                     Total Price: ${{ totalPrice }}
                 </p>
                 <br>
-                <button [disabled]="!form.valid" class="btn btn-primary large"> Pay </button>
+                <button data-test="checkout_payment" [disabled]="!form.valid" class="btn btn-primary large"> Pay </button>
             </form>
         </div>
     </div>

@@ -4,7 +4,7 @@
             <app-product-basket-list></app-product-basket-list>
             <p>Total price: ${{ cartTotalPrice$ | async }}</p>
             <div class="btn-checkout-container">
-                <button class="btn btn-primary btn-lg " [disabled]="(userCanPurchase$ | async) === false"
+                <button data-test="go-checkout" class="btn btn-primary btn-lg " [disabled]="(userCanPurchase$ | async) === false"
                     [routerLink]="['/checkout']">
                     Go to Checkout
                 </button>
