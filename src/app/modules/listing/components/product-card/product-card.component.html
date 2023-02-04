@@ -1,8 +1,10 @@
-<div class="card">
+<div class="card" [ngClass]="{'product-in-cart': product.disabled}">
     <img class="card-img-top" [src]="product.image" alt="Card image cap">
     <div class="card-body">
         <h5 class="card-title">{{ product.name }}</h5>
         <p class="card-text">${{ product.price }}</p>
-        <button href="#" class="btn btn-primary" [disabled]="product.disabled" (click)="addProduct()">Add to Cart</button>
+        <button type="button" class="btn btn-lg"
+            [ngClass]="{'btn-success': !product.disabled, 'btn-secondary': product.disabled}" (click)="addProduct()">{{product.disabled ? 'Added' : 'Buy'}}
+            </button>
     </div>
 </div>

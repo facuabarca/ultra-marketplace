@@ -7,7 +7,7 @@ describe('Purchase Success', () => {
     cy.get('[data-test="go-basket"]').scrollIntoView();
     cy.wait(2000);
     cy.get('[data-test="go-basket"]').click();
-    cy.wait(2000);
+    cy.wait(3000);
     cy.get('[data-test="go-checkout"]').click();
     cy.get('[data-test="personal_data_name"]').type('Facundo');
     cy.wait(500);
@@ -22,7 +22,7 @@ describe('Purchase Success', () => {
     cy.get('[data-test="address_data_state"]').type('Barcelona');
     cy.wait(500);
     cy.get('[data-test="checkout_payment"]').click();
-    cy.wait(1000);
+    cy.wait(6000);
     cy.get('[data-test="checkout_success_buy_more"]').click();
   });
 });

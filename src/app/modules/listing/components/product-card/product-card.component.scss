@@ -2,3 +2,8 @@ img {
     max-height: 200px;
     min-height: 200px;
 }
+
+.product-in-cart {
+    opacity: 0.5;
+    pointer-events: none;
+}

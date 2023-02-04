@@ -3,7 +3,7 @@ import { IProductUI } from '../../../../shared/models/shared.model';
 import { BasketFacadeService } from '../../services/basket-facade.service';
 
 @Component({
-  selector: 'app-product-basket',
+  selector: '[app-product-basket]',
   templateUrl: 'product-basket.component.html',
   styleUrls: ['product-basket.component.scss'],
 })

@@ -8,12 +8,14 @@ import { ProductBasketComponent } from './components/product-basket/product-bask
 import { CommonModule } from '@angular/common';
 import { BasketGuard } from './guards/basket.guard';
 import { BasketFacadeService } from './services/basket-facade.service';
+import { BasketEmptyComponent } from './components/basket-empty/basket-empty.component';
 
 @NgModule({
   imports: [RouterModule.forChild(routes), CommonModule],
   exports: [BasketPage],
   declarations: [
     BasketPage,
+    BasketEmptyComponent,
     ProductBasketListComponent,
     ProductBasketComponent,
   ],

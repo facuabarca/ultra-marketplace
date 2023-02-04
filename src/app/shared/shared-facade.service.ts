@@ -51,7 +51,7 @@ export class SharedFacadeService {
     ]).pipe(
       map(([productsList, cartItems]) => {
         return productsList
-          .filter((product: IProductUI) => cartItems.includes(product.id))
+          ?.filter((product: IProductUI) => cartItems.includes(product.id))
           .reduce(
             (total: number, product: IProductUI) => (total += product.price),
             0

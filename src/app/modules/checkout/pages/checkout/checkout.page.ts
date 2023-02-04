@@ -32,6 +32,7 @@ export class CheckoutPage implements OnInit, OnDestroy {
   }
 
   onSubmit(): void {
+    console.log('fale');
     const input = this.buildPucharseInput();
     this.checkoutFacadeService.purchase(input);
   }

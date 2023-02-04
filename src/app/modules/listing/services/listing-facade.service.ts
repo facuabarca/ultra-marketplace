@@ -56,7 +56,7 @@ export class ListingFacadeService {
     products: IProductUI[],
     productsPurchased: number[]
   ): IProductUI[] {
-    return products.filter(
+    return products?.filter(
       (product: IProductUI) => !productsPurchased.includes(product.id)
     );
   }
@@ -65,7 +65,7 @@ export class ListingFacadeService {
     products: IProductUI[],
     cartItems: number[]
   ): IProductUI[] {
-    return products.map((product: IProductUI) => ({
+    return products?.map((product: IProductUI) => ({
       ...product,
       disabled: cartItems.some((cartItem: number) => cartItem === product.id),
     }));

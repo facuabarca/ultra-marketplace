@@ -6,11 +6,13 @@ import { CartFacadeService } from '../../cart/services/cart-facade.service';
 import { Observable } from 'rxjs';
 import { UserFacadeService } from '../../user/services/user-facade.service';
 import { SharedFacadeService } from '@app/shared/shared-facade.service';
+import { selectLastPurchase } from '../store/checkout.selector';
 
 @Injectable()
 export class CheckoutFacadeService {
   cartItems$: Observable<number[]>;
   totalPrice$: Observable<number>;
+  lastPurchase$: Observable<Purchase>;
 
   constructor(
     private readonly store: Store,
@@ -20,6 +22,7 @@ export class CheckoutFacadeService {
   ) {
     this.cartItems$ = this.cartFacadeService.cartItems$;
     this.totalPrice$ = this.sharedFacadeService.cartTotalPrice$;
+    this.lastPurchase$ = this.store.select(selectLastPurchase);
   }
 
   purchase(purchase: Purchase): void {

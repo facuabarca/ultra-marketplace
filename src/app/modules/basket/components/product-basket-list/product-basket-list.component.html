@@ -1,7 +1,17 @@
 <div class="row">
-    <ul class="list-group">
-        <ng-container *ngFor="let product of basketList$ | async">
-            <app-product-basket [product]="product"></app-product-basket>
-        </ng-container>
-    </ul>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">Handle</th>
+            </tr>
+        </thead>
+        <tbody>
+            <ng-container *ngFor="let product of basketList$ | async">
+                <tr app-product-basket [product]="product"></tr>
+            </ng-container>
+        </tbody>
+    </table>
 </div>

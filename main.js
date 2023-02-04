@@ -8,7 +8,7 @@ function isDev() {
 
 createWindow = () => {
     appWin = new BrowserWindow({
-        width: 1400,
+        width: 1500,
         height: 1200,
         title: "Ultra-Marketplace",
         resizable: true,
