@@ -1,6 +1,4 @@
 export interface UserState {
-  name?: string;
-  lastName?: string;
   wallet: Wallet;
   productsPurchased?: number[];
 }

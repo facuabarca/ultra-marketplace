@@ -1,8 +1,6 @@
 import { Purchase } from '../../modules/checkout/store/checkout.state';
 export interface IUserData {
   id: number;
-  name: string;
-  lastName: string;
   wallet: IWallet;
 }
 
