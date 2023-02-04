@@ -3,9 +3,12 @@
         <ng-container *ngIf="cartItems.length > 0; else basketEmpty;">
             <app-product-basket-list></app-product-basket-list>
             <p>Total price: ${{ cartTotalPrice$ | async }}</p>
-            <button class="btn btn-primary" [disabled]="(userCanPurchase$ | async) === false" [routerLink]="['/checkout']" >
-                Checkout
-            </button>
+            <div class="btn-checkout-container">
+                <button class="btn btn-primary btn-lg " [disabled]="(userCanPurchase$ | async) === false"
+                    [routerLink]="['/checkout']">
+                    Go to Checkout
+                </button>
+            </div>
         </ng-container>
     </ng-container>
 </div>

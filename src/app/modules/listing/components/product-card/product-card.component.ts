@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { IProductUI } from '../../../../shared/models/shared.model';
+import { ListingFacadeService } from '../../services/listing-facade.service';
 @Component({
   selector: 'app-product-card',
   templateUrl: 'product-card.component.html',
@@ -7,9 +8,10 @@ import { IProductUI } from '../../../../shared/models/shared.model';
 })
 export class ProductCardComponent {
   @Input() product!: IProductUI;
-  @Output() onAddProduct = new EventEmitter();
+
+  constructor(private readonly listingFacadeService: ListingFacadeService) {}
 
   addProduct(): void {
-    this.onAddProduct.emit(this.product.id);
+    this.listingFacadeService.addItemCart(this.product.id);
   }
 }

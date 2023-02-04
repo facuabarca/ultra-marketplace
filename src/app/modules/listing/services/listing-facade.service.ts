@@ -25,26 +25,7 @@ export class ListingFacadeService {
     this.cartItems$ = this.cartFacadeService.cartItems$;
     this.userProductsPurchased$ = this.userFacadeService.userProductsPurchased$;
 
-    this.productsList$ = combineLatest([
-      this.productsApi$,
-      this.cartItems$,
-      this.userProductsPurchased$,
-    ]).pipe(
-      map(([productsApi, cartItems, productsPurchased]) => {
-        productsApi = productsApi.filter(
-          (product: IProductUI) => !productsPurchased.includes(product.id)
-        );
-        productsApi = productsApi.map((product: IProductUI) => {
-          return {
-            ...product,
-            disabled: cartItems.some(
-              (cartItem: number) => cartItem === product.id
-            ),
-          };
-        });
-        return productsApi;
-      })
-    );
+    this.productsList$ = this.getProductList();
   }
 
   loadProducts(): void {
@@ -53,5 +34,40 @@ export class ListingFacadeService {
 
   addItemCart(product: number): void {
     this.cartFacadeService.addItemCart(product);
+  }
+
+  private getProductList(): Observable<IProductUI[]> {
+    return combineLatest([
+      this.productsApi$,
+      this.cartItems$,
+      this.userProductsPurchased$,
+    ]).pipe(
+      map(([productsApi, cartItems, productsPurchased]) => {
+        productsApi = this.filterProductsPurchased(
+          productsApi,
+          productsPurchased
+        );
+        return (productsApi = this.markProductInCart(productsApi, cartItems));
+      })
+    );
+  }
+
+  private filterProductsPurchased(
+    products: IProductUI[],
+    productsPurchased: number[]
+  ): IProductUI[] {
+    return products.filter(
+      (product: IProductUI) => !productsPurchased.includes(product.id)
+    );
+  }
+
+  private markProductInCart(
+    products: IProductUI[],
+    cartItems: number[]
+  ): IProductUI[] {
+    return products.map((product: IProductUI) => ({
+      ...product,
+      disabled: cartItems.some((cartItem: number) => cartItem === product.id),
+    }));
   }
 }

@@ -1,16 +1,21 @@
 <div class="container mt-5">
-    <form [formGroup]="form" (ngSubmit)="onSubmit()">
-        <h4>* Personal Data</h4>
-        <app-personal-data formGroupName="personalData"></app-personal-data>
-        <br>
-        <h4>* Address</h4>
-        <app-personal-address formGroupName="personalAddress"></app-personal-address>
-        <br>
-        <br>  
-        <p>
-            Total Price: ${{ totalPrice }}
-        </p>
-        <br>
-        <button [disabled]="!form.valid" class="btn btn-primary large"> Pay </button>
-    </form>
+    <div class="row">
+        <div class="col-xs-12">
+            <h1>Enter your data for payment</h1>
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                <h4>* Personal Data</h4>
+                <app-personal-data formGroupName="personalData"></app-personal-data>
+                <br>
+                <h4>* Address</h4>
+                <app-personal-address formGroupName="personalAddress"></app-personal-address>
+                <br>
+                <br>
+                <p>
+                    Total Price: ${{ totalPrice }}
+                </p>
+                <br>
+                <button [disabled]="!form.valid" class="btn btn-primary large"> Pay </button>
+            </form>
+        </div>
+    </div>
 </div>

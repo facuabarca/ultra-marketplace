@@ -14,8 +14,4 @@ export class ProductListComponent {
   constructor(private readonly listingFacadeService: ListingFacadeService) {
     this.productsList$ = this.listingFacadeService.productsList$;
   }
-
-  addProduct(product: number): void {
-    this.listingFacadeService.addItemCart(product);
-  }
 }
