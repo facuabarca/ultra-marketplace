@@ -2,24 +2,18 @@
   "users": [
     {
       "id": 5564,
-      "name": "Facundo",
-      "lastName": "Abarca",
       "wallet": {
         "amount": 350
       }
     },
     {
       "id": 7667,
-      "name": "Pedro",
-      "lastName": "Ortega",
       "wallet": {
         "amount": 350
       }
     },
     {
       "id": 4544,
-      "name": "Lucrecio",
-      "lastName": "Indeana",
       "wallet": {
         "amount": 350
       }
