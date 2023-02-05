@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
@@ -9,13 +8,8 @@ import { SharedFacadeService } from './shared-facade.service';
 
 @NgModule({
   imports: [CommonModule, RouterModule],
-  declarations: [
-    FooterComponent,
-    HeaderComponent,
-    AlertComponent,
-    ErrorDirective,
-  ],
-  exports: [FooterComponent, HeaderComponent, AlertComponent, ErrorDirective],
+  declarations: [HeaderComponent, AlertComponent, ErrorDirective],
+  exports: [HeaderComponent, AlertComponent, ErrorDirective],
   providers: [SharedFacadeService],
 })
 export class SharedModule {}

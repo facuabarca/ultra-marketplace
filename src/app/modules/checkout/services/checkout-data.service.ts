@@ -5,7 +5,7 @@ import { Purchase } from '../store/checkout.state';
 
 @Injectable()
 export class CheckoutDataService {
-  //ToDo: implement apiBridgeService for real connection. This is a fake call.
+  //ToDo: implement apiBridgeService for real connection. This is a fake behavior with time.
   public placeOrder(input: Purchase): Observable<PlaceOrderResult> {
     return of({
       purchase: input,

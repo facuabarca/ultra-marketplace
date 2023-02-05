@@ -14,7 +14,7 @@ import { FormGroupDirective, FormGroup } from '@angular/forms';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PersonalDataComponent implements OnInit {
-  @Input() formGroupName: string;
+  @Input() formGroupName!: string;
 
   form!: FormGroup;
 
