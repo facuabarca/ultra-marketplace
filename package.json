@@ -11,10 +11,8 @@
     "lint": "ng lint",
     "api": "json-server api/db.json --routes api/routes.json --no-cors=true",
     "electron:local": "npm run build:prod && electron .",
-    "test": "jest --no-cache --watch",
-    "e2e": "ng e2e",
-    "cypress:open": "cypress open",
-    "cypress:run": "cypress run"
+    "test": "jest --watchAll",
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {

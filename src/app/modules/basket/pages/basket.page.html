@@ -12,7 +12,7 @@
                             <p class="text-center"><b>Total price: ${{ cartTotalPrice$ | async }}</b></p>
                             <button data-test="go-checkout" class="btn btn-primary btn-lg "
                                 [disabled]="(userCanPurchase$ | async) === false" [routerLink]="['/checkout']">
-                                Go to Checkout
+                                Checkout
                             </button>
                         </div>
                     </div>

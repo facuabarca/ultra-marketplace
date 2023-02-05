@@ -1,4 +1,9 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  OnDestroy,
+  OnInit,
+} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { combineLatest, Subject, takeUntil } from 'rxjs';
 import { Purchase } from '../../store/checkout.state';
@@ -7,7 +12,7 @@ import { CheckoutFacadeService } from '../../services/checkout-facade.service';
 @Component({
   selector: 'app-checkout',
   templateUrl: 'checkout.page.html',
-  styleUrls: ['checkout.page.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CheckoutPage implements OnInit, OnDestroy {
   form!: FormGroup;
@@ -32,7 +37,6 @@ export class CheckoutPage implements OnInit, OnDestroy {
   }
 
   onSubmit(): void {
-    console.log('fale');
     const input = this.buildPucharseInput();
     this.checkoutFacadeService.purchase(input);
   }
@@ -56,14 +60,17 @@ export class CheckoutPage implements OnInit, OnDestroy {
   private buildForm(): void {
     this.form = this.fb.group({
       personalData: this.fb.group({
-        name: [null, Validators.required],
-        surname: [null, Validators.required],
-        email: [null, Validators.required],
+        name: [null, [Validators.required, Validators.minLength(3)]],
+        surname: [null, [Validators.required, Validators.minLength(3)]],
+        email: [
+          null,
+          [Validators.required, Validators.minLength(3), Validators.email],
+        ],
       }),
       personalAddress: this.fb.group({
-        street: [null, Validators.required],
-        city: [null, Validators.required],
-        state: [null, Validators.required],
+        street: [null, [Validators.required, Validators.minLength(3)]],
+        city: [null, [Validators.required, Validators.minLength(3)]],
+        state: [null, [Validators.required, Validators.minLength(3)]],
       }),
     });
   }

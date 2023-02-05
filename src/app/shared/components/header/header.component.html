@@ -4,18 +4,18 @@
       <a class="navbar-brand" [routerLink]="['/']">Ultra Marketplace</a>
       
       <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarSupportedContent">
-        <div style="margin-right: 40px;">
+        <li class="nav-item me-3">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" class="bi bi-wallet" viewBox="0 0 16 16">
             <path d="M0 3a2 2 0 0 1 2-2h13.5a.5.5 0 0 1 0 1H15v2a1 1 0 0 1 1 1v8.5a1.5 1.5 0 0 1-1.5 1.5h-12A2.5 2.5 0 0 1 0 12.5V3zm1 1.732V12.5A1.5 1.5 0 0 0 2.5 14h12a.5.5 0 0 0 .5-.5V5H2a1.99 1.99 0 0 1-1-.268zM1 3a1 1 0 0 0 1 1h12V2H2a1 1 0 0 0-1 1z"/>
           </svg>
-          <span style="color: white; margin-left:5px">$ {{ walletAmount$ | async }}</span>
-        </div>
-        <div style="margin-right: 15px; cursor: pointer;" data-test="go-basket" [routerLink]="['/basket']" routerLinkActive="router-link-active" >
+          <span class="ms-2 text-white">$ {{ walletAmount$ | async }}</span>
+        </li>
+        <li class="nav-item me-3 pointer-event" data-test="go-basket" [routerLink]="['/basket']">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" class="bi bi-basket" viewBox="0 0 16 16">
             <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
           </svg>
-          <span style="color: white; margin-left:5px">{{ cartCounter$ | async }}</span>
-        </div>
+          <span class="nav-item ms-2 text-white">{{ cartCounter$ | async }}</span>
+        </li>
       </div>
     </div>
   </nav>

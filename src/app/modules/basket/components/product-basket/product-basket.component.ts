@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { IProductUI } from '../../../../shared/models/shared.model';
 import { BasketFacadeService } from '../../services/basket-facade.service';
 
@@ -6,6 +6,7 @@ import { BasketFacadeService } from '../../services/basket-facade.service';
   selector: '[app-product-basket]',
   templateUrl: 'product-basket.component.html',
   styleUrls: ['product-basket.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProductBasketComponent {
   @Input() product!: IProductUI;

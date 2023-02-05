@@ -1,9 +1,17 @@
-import { Component, Host, Input, OnInit, SkipSelf } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Host,
+  Input,
+  OnInit,
+  SkipSelf,
+} from '@angular/core';
 import { FormGroup, FormGroupDirective } from '@angular/forms';
 
 @Component({
   selector: 'app-personal-address',
   templateUrl: 'personal-address.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PersonalAddressComponent implements OnInit {
   @Input() formGroupName: string;

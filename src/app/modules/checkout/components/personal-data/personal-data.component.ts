@@ -1,9 +1,17 @@
-import { Component, Host, SkipSelf, OnInit, Input } from '@angular/core';
+import {
+  Component,
+  Host,
+  SkipSelf,
+  OnInit,
+  Input,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { FormGroupDirective, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-personal-data',
   templateUrl: 'personal-data.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PersonalDataComponent implements OnInit {
   @Input() formGroupName: string;

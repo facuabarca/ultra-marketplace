@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { BasketFacadeService } from '../services/basket-facade.service';
 
@@ -6,6 +6,7 @@ import { BasketFacadeService } from '../services/basket-facade.service';
   selector: 'app-basket',
   templateUrl: 'basket.page.html',
   styleUrls: ['basket.page.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BasketPage {
   cartItems$: Observable<number[]>;

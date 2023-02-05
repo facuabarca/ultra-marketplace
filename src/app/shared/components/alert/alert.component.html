@@ -1,5 +1,7 @@
 <ng-container *ngIf="alert$ | async as alert">
-    <div [className]="alert.key" role="alert" style="text-align: center;">
-        {{ alert.value }}
+    <div  class="text-center">
+        <div [className]="alert.key" role="alert">
+            {{ alert.value }}
+        </div>
     </div>
 </ng-container>
