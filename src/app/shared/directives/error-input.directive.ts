@@ -15,7 +15,7 @@ import {
   FormControl,
   ValidationErrors,
 } from '@angular/forms';
-import { ERRORS_TEXT } from './errors.model';
+import { ERRORS_TEXT } from '../models/errors.model';
 
 @Directive({
   selector: '[appError]',
