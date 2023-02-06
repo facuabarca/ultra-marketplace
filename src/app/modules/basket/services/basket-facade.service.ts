@@ -57,7 +57,9 @@ export class BasketFacadeService {
       map(([walletAmount, cartTotalPrice]) => {
         return Boolean(walletAmount >= cartTotalPrice);
       }),
-      tap((data) => (!data ? this.showAlert() : data))
+      tap((data) => {
+        if (!data) this.showAlert();
+      })
     );
   }
 }
